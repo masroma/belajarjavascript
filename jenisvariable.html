@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global dan lokal variable</title>
+</head>
+<body>
+    
+
+    <script>
+        var global = "bisa diakses dimana aja";
+
+        function panggil()
+        {
+            var lokal = "variable lokal";
+            document.write("ini akses dari dalam <b>", global, "</b><br/>");
+            document.write("ini hanya di akses dari dalam function <b>", lokal, "</b><br/>");
+        }
+        panggil();
+        
+        document.write("ini akses dari luar <b>", global, "<b/><br/>");
+        document.write(lokal);
+
+    </script>
+</body>
+</html>

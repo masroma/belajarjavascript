@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD DATA</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>CRUD FETCH DATA API</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur esse non commodi minima quo nesciunt, officiis quisquam ipsa explicabo neque eos animi voluptatem cum, dolorum delectus ullam maxime, nulla ipsam.</p>
+            </div>
+        </div>
+        <div class="row mt-5" id="baris_data">
+           
+        </div>
+    </div>
+
+
+    <script>
+        $.ajax({
+            type:"GET",
+            data:"",
+            url:"https://fakestoreapi.com/products",
+            success:function(result){
+                // console.log(result);
+                // var objResult = JSON.parse(result);
+                var objResult = result;
+                $.each(objResult, function(key, val){
+                    var barisRow=$('<div class="col-md-4 mb-2">');
+                        barisRow.html('<div class="card"><img class="card-img-top " style="width: 100%; height: 300px;" src="'+val.image+'" alt="Card image cap"><div class="card-body"><p class="card-title">'+val.title+'</p></div></div>')
+                    var dataHandler = $('#baris_data');
+                    dataHandler.append(barisRow);
+                })
+            }
+        })
+    </script>
+</body>
+</html>
